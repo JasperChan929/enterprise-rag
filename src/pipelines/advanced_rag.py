@@ -84,6 +84,22 @@ class AdvancedRAGPipeline:
             num_queries=4, include_original=True
         )
         self.hyde_generator = HyDEGenerator()
+        
+         # ==== 🆕 Day 7: Reranker 相关 ====
+        # 懒加载: 实际第一次 use_reranker=True 时才实例化
+        self._reranker = None
+        self._rerank_input_n = 20   # 召回给 Reranker 几条
+        # 精排后保留多少条, 和 top_k 保持一致(默认 5)
+    
+    @property
+    def reranker(self):
+        """懒加载 Reranker (第一次用到才加载, 2 秒冷启动)."""
+        if self._reranker is None:
+            from src.rerankers.bge_reranker import BGEReranker
+            print("[AdvancedRAG] 首次使用 Reranker, 正在加载 BGE-Reranker-base...")
+            self._reranker = BGEReranker()
+        return self._reranker
+
 
     def _build_bm25_from_qdrant(self):
         """从 Qdrant scroll 全量 chunks, 构建 BM25 索引。"""
@@ -126,6 +142,9 @@ class AdvancedRAGPipeline:
         mode: Mode = "auto",
         filters: Optional[dict] = None,
         top_k: Optional[int] = None,
+        # ==== 🆕 Day 7 新增 ====
+        use_reranker: bool = False,
+        rerank_input_n: Optional[int] = None,
     ) -> dict:
         """执行一次 Advanced RAG 查询。
 
@@ -184,15 +203,36 @@ class AdvancedRAGPipeline:
             fake_answer = self.hyde_generator.generate(question)
             probes.append(("hyde", fake_answer))
 
-        # ==== 3. 根据 mode_used 执行检索 ====
+
+       # ==== 3. 根据 mode_used 执行检索 ====
+        # 🆕 Day 7: 如果开 Reranker, 召回多捞几条 (rerank_input_n), 待精排后再截断
+        recall_n = (rerank_input_n or self._rerank_input_n) if use_reranker else top_k
+
         if mode_used == "naive":
-            # 纯 Dense, 不用 Hybrid
-            search_results = self._naive_search(question, top_k, filters)
+            search_results = self._naive_search(question, recall_n, filters)
         else:
-            # 所有其他 mode 都用 Hybrid (单探针或多探针)
             search_results = self._multi_probe_hybrid_search(
-                probes, top_k, filters, mode_used
+                probes, recall_n, filters, mode_used
             )
+
+        # ==== 🆕 Day 7: Reranker 精排 ====
+        rerank_info = None
+        if use_reranker and search_results:
+            recall_count = len(search_results)
+            import time
+            t0 = time.time()
+            search_results = self.reranker.rerank(
+                query=question,
+                candidates=search_results,
+                top_k=top_k,
+            )
+            rerank_elapsed_ms = (time.time() - t0) * 1000
+            rerank_info = {
+                "recall_n": recall_count,
+                "final_k": len(search_results),
+                "elapsed_ms": round(rerank_elapsed_ms, 1),
+            }
+
 
         # ==== 4. LLM 生成答案 ====
         llm_input = [
@@ -211,6 +251,7 @@ class AdvancedRAGPipeline:
             "answer": answer,
             "mode_used": mode_used,
             "routing_decision": routing_decision,
+            "rerank_info": rerank_info, # 🆕
             "probes": [
                 {"type": p_type, "text": p_text[:100]}  # 截断展示
                 for p_type, p_text in probes
@@ -218,6 +259,8 @@ class AdvancedRAGPipeline:
             "sources": [
                 {
                     "score": r.get("rrf_score", r.get("score", 0)),
+                    "rerank_score": r.get("rerank_score"),     # 🆕
+                    "rerank_rank": r.get("rerank_rank"),       # 🆕
                     "company": r["metadata"].get("company", "?"),
                     "year": r["metadata"].get("year", "?"),
                     "page": r["metadata"].get("page", "?"),
