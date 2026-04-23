@@ -60,7 +60,7 @@ class BGEEmbedder:
         if self._initialized:
             return
         
-        print(f"📦 加载 Embedding 模型: {model_name}")
+        print(f"Embedding model: {model_name}")
         self.model_name = model_name
         self.model = SentenceTransformer(model_name)
         self.dim = self.model.get_embedding_dimension()

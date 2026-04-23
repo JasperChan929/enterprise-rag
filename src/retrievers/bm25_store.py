@@ -77,7 +77,7 @@ class BM25Store:
     def __init__(self):
         # 加载金融词典到 jieba(进程级, 多次调用无副作用)
         n = load_to_jieba()
-        print(f"📚 金融词典已加载: {n} 个术语")
+        print(f"金融词典已加载: {n} 个术语")
 
         self.chunks: list[Chunk] = []
         self.tokenized_corpus: list[list[str]] = []

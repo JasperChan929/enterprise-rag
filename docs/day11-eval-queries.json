@@ -1,0 +1,228 @@
+{
+  "_metadata": {
+    "generated_at": "Day 11 T1c",
+    "total_queries": 11,
+    "purpose": "Day 11 RAGAS 评估集. 10 条 U1-U11 + 新增 U12. 覆盖 7 种 query_type, 关联 6 条已登记 TD.",
+    "note": "reference_answer 的 confidence 标注: high = 从金页 excerpt 直接读到; medium = 基于 excerpt 推断; low = 未读 PDF 原文只凭查询意图推测. low 置信度的条目需用户确认或跑完 RAGAS 后人工抽检核对."
+  },
+
+  "_instructions_to_user": "每条 U 的 reference_answer 只作人工抽检对照用, 不进入 RAGAS 的 reference 字段 (我们的 3 个 metric 都不需要 reference). 如果你读过 PDF 发现候选答案错, 改 reference_answer 即可, 不要改 query_type.",
+
+  "_query_types": {
+    "numeric_simple": "一个数字, 应在单个 chunk 里",
+    "qualitative": "定性描述, 开放题, 答案形态是段落而非数字",
+    "multi_perspective": "多口径并列, 期望 RAG 列出不同口径 (集团/本公司/分部等)",
+    "multi_chunk_reasoning": "需要跨多个 chunk 聚合/计算",
+    "table_extraction": "答案在表格里, 考 chunker 表格保留能力",
+    "synonym_recall": "查询用同义词, 考 BM25 + 金融词典的覆盖",
+    "refusal_expected": "真无答案, RAG 应该拒答. 测 is_refusal 基线"
+  },
+
+  "queries": [
+    {
+      "id": "U1",
+      "text": "比亚迪汽车业务2025年的毛利率是多少",
+      "company_filter": "比亚迪",
+      "query_type": "refusal_expected",
+      "known_td_link": "TD-10-3",
+      "reference_answer": {
+        "expected_behavior": "应拒答. 比亚迪 2025 年报分行业只按'日用电子器件'切分, 无'汽车业务'单独毛利率披露 (day09-gold-pages_final.json U1.is_empty_gold=True 已确认).",
+        "confidence": "high"
+      },
+      "notes": "Day 11 T1c 发现: U1 原来一直被当'基础数字型'用, 实际是真拒答样本. Z 方案下保留 U1 作拒答型之一, 基础数字型角色移给 U12."
+    },
+    {
+      "id": "U2",
+      "text": "宁德时代磷酸铁锂产品2025年的情况",
+      "company_filter": "宁德时代",
+      "query_type": "qualitative",
+      "known_td_link": null,
+      "reference_answer": {
+        "expected_behavior": "应给出定性描述. 金页 p.14 显示磷酸铁锂是动力电池产品系列之一; p.17 提到 2025 中国三元+磷酸铁锂正极材料产量 456.5 万吨同比+51%; p.21 提到二代神行超充电池是全球首款磷酸铁锂 800km+12C 电池. 合格答案应涉及产品定位 / 市场规模 / 新品之一.",
+        "confidence": "high"
+      },
+      "notes": "定性开放题, Faithfulness 可能分数较分散, ResponseRelevancy 是主信号"
+    },
+    {
+      "id": "U3",
+      "text": "国电南自2024年度净利润是多少",
+      "company_filter": "国电南自",
+      "query_type": "multi_perspective",
+      "known_td_link": "TD-8-2",
+      "reference_answer": {
+        "expected_behavior": "多口径错位. 金页显示 U3 有集团层面归母净利润 (p.2/p.7 有'归属于上市公司股东净利润'), 但 Day 9-10 召回常漂到子公司层面 (427M / 115M 等子公司数字). 期望 RAG 要么答对集团归母, 要么明确说'已找到子公司数据但未找到集团合并口径'.",
+        "confidence": "medium",
+        "suspected_group_level_value": "约 3.4 亿元 (p.2 excerpt '142,253,098.68 元占本年度归属于上市公司股东净利润的比例 41.76%' 反推 = 142253098.68/0.4176 ≈ 340,645,823 元. 非权威, 需用户核对)"
+      },
+      "notes": "Day 10 三轮 Prompt 均未救回, 期望 Day 11 RAGAS 数据能量化'多口径错位'在 Faithfulness 上的分数"
+    },
+    {
+      "id": "U4",
+      "text": "招商银行2025年不良贷款率",
+      "company_filter": "招商银行",
+      "query_type": "multi_perspective",
+      "known_td_link": "TD-8-2",
+      "reference_answer": {
+        "expected_behavior": "集团口径 0.94% (金页 p.8 excerpt 明确: '期末不良贷款率0.94%, 拨备覆盖率391.79%'). Day 10 v3 测试发现另有本公司口径和消费信贷 1.52%. 期望 RAG 列出多口径.",
+        "confidence": "high",
+        "primary_value": "0.94% (集团口径)"
+      },
+      "notes": "Day 10 v3 救一半 (列 3 口径但 is_refusal=True). 这条 RAGAS 数据是验证 TD-10-3 FN-2 污染度的关键样本"
+    },
+    {
+      "id": "U5",
+      "text": "紫金矿业海外业务的营收和风险",
+      "company_filter": "紫金矿业",
+      "query_type": "qualitative",
+      "known_td_link": "TD-6-5",
+      "reference_answer": {
+        "expected_behavior": "Day 6 起的死穴样本. 金页 p.12 ('紫金矿业在海外 17 个国家...')、p.18 ('面向全球资源勘探布局')、p.35 ('全球化与局限的国内思维及管理方式'主要矛盾) 有相关定性描述. 期望答案含海外资源布局 + 全球化运营 + 地缘政治风险之一.",
+        "confidence": "high"
+      },
+      "notes": "Day 9 Task 2 武器库救不回, Day 11 看 full+reranker 有无改善"
+    },
+    {
+      "id": "U6",
+      "text": "宁德时代2025年营业收入是多少",
+      "company_filter": "宁德时代",
+      "query_type": "numeric_simple",
+      "known_td_link": null,
+      "reference_answer": {
+        "expected_behavior": "营业收入 423,701,834 千元 (= 约 4237 亿元). 金页 p.11 excerpt 直接显示.",
+        "confidence": "high",
+        "primary_value": "423,701,834 千元"
+      },
+      "notes": "Day 9 发现 LLM 从审计报告 p.108 复述页能救回, 验证 Day 11 大样本下韧性是否成立"
+    },
+    {
+      "id": "U7",
+      "text": "紫金矿业2025年可持续发展战略",
+      "company_filter": "紫金矿业",
+      "query_type": "qualitative",
+      "known_td_link": null,
+      "reference_answer": {
+        "expected_behavior": "年报必有 ESG / 可持续发展章节. 候选答案应涉及减碳 / 安全 / 社区 / 治理等关键词之一. 未读 PDF 原文, 不给具体措辞.",
+        "confidence": "low"
+      },
+      "notes": "Day 11 新加. 覆盖'定性策略型'. 金融分析师日常问题类型"
+    },
+    {
+      "id": "U8",
+      "text": "比亚迪2025年营业收入与净利润分别是多少,利润率大约多少",
+      "company_filter": "比亚迪",
+      "query_type": "multi_chunk_reasoning",
+      "known_td_link": null,
+      "reference_answer": {
+        "expected_behavior": "需跨 chunk 聚合 + 计算. 营收和净利润通常在同一财务概要页, 但利润率多数年报不直接披露, 需 LLM 算. 金页 JSON U1 candidates 中的 p.16 有'长 44.9%'可能是某增长率但不是利润率. 具体数字未读原文.",
+        "confidence": "low",
+        "computation": "净利润 / 营业收入 = 利润率"
+      },
+      "notes": "Day 11 新加. 真测'多 chunk 推理'. 若 LLM 给出计算过程 + 最终 %, 视为成功"
+    },
+    {
+      "id": "U9",
+      "text": "招商银行2025年贷款结构中对公贷款和零售贷款的占比",
+      "company_filter": "招商银行",
+      "query_type": "table_extraction",
+      "known_td_link": "TD-8-1",
+      "reference_answer": {
+        "expected_behavior": "监管强制披露, 年报必有贷款结构表. 常见口径: 对公贷款 + 零售贷款 = 总贷款, 分别占比加起来约 100%. 招行零售较强, 零售占比应 > 50%.",
+        "confidence": "low"
+      },
+      "notes": "Day 11 新加. TD-8-1 表格切断的定向测试. 如果答案缺表格来源或占比不加起来 ≈100%, 说明 chunker 把表切断了"
+    },
+    {
+      "id": "U10",
+      "text": "紫金矿业境外项目的营收情况",
+      "company_filter": "紫金矿业",
+      "query_type": "synonym_recall",
+      "known_td_link": null,
+      "reference_answer": {
+        "expected_behavior": "U5 的同义词版本 ('境外' = '海外'). 期望召回和 U5 相似度高 (top_pages 有重叠), 答案也应相近. 用于测 BM25 + 金融词典 175 词对'境外/海外'是否正确等价.",
+        "confidence": "high",
+        "compare_with": "U5"
+      },
+      "notes": "Day 11 新加. 和 U5 成对评估, 看 retrieved_contexts 的 top_pages 重叠率. 金融词典不含'境外'会导致 BM25 召回劣化"
+    },
+    {
+      "id": "U11",
+      "text": "招商银行2025年元宇宙业务收入是多少",
+      "company_filter": "招商银行",
+      "query_type": "refusal_expected",
+      "known_td_link": "TD-10-3",
+      "reference_answer": {
+        "expected_behavior": "应拒答. 招行无元宇宙业务. 期望 is_refusal=True 且答案简洁, 不复述关键词.",
+        "confidence": "high"
+      },
+      "notes": "Day 11 新加. 测 is_refusal 在真拒答场景的准确率 (应 100%). 与 U1 都是拒答型但 U1 是'业务存在但口径错位', U11 是'业务完全不存在', 两者失败模式不同"
+    },
+    {
+      "id": "U12",
+      "text": "比亚迪2025年净利润是多少",
+      "company_filter": "比亚迪",
+      "query_type": "numeric_simple",
+      "known_td_link": null,
+      "reference_answer": {
+        "expected_behavior": "比亚迪 2025 年报财务概要页有归属于上市公司股东的净利润数字. 未读 PDF 原文, 未给具体值.",
+        "confidence": "low"
+      },
+      "notes": "Day 11 T1c 新加. Z 方案下接替 U1 的'基础数字型'角色. 最简单最该答对的查询, 作为 baseline 对照"
+    },
+    {
+      "id": "U13",
+      "text": "紫金矿业近几年的战略转型方向",
+      "company_filter": "紫金矿业",
+      "query_type": "hyde_friendly",
+      "known_td_link": null,
+      "reference_answer": {
+        "expected_behavior": "模糊语义查询, BM25 关键词匹配不利, 预期 hyde 生成的假设答案能精准命中战略转型章节. 答案应涉及国际化/新能源金属/数字化等方向之一. 未读 PDF 原文.",
+        "confidence": "low"
+      },
+      "notes": "Day 11 补跑新加. 设计意图: 给 hyde 展示'补关键词召回' 能力的机会. 如果 hyde 在此条依然不如 hybrid, 说明 hyde 对金融 RAG 系统性无效"
+    },
+    {
+      "id": "U14",
+      "text": "招商银行的零售银行业务策略",
+      "company_filter": "招商银行",
+      "query_type": "reranker_friendly",
+      "known_td_link": "TD-7-2",
+      "reference_answer": {
+        "expected_behavior": "关键词'零售/银行/业务/策略' 召回会拿到大量'零售' 业务数据 + '银行' 定义页, 混乱. 预期 Reranker 能把'策略' 讨论段落精排到前面. 答案应涉及 AUM 增长/财富管理/科技赋能等.",
+        "confidence": "low"
+      },
+      "notes": "Day 11 补跑新加. 设计意图: 给 Reranker 展示'精排噪音' 能力的机会. 如果此条 Reranker 依然砸, 说明 Reranker 对金融 RAG 全面无效, TD-7-2 升级为重大 TD"
+    },
+    {
+      "id": "U15",
+      "text": "比亚迪的主要竞争优势",
+      "company_filter": "比亚迪",
+      "query_type": "full_friendly",
+      "known_td_link": null,
+      "reference_answer": {
+        "expected_behavior": "竞争优势通常散落在 多个 chunk (技术/产品/战略/成本), 单探针难以全覆盖. 预期 full mode 的 Multi-Query + HyDE 多探针能覆盖不同角度. 答案应涉及垂直整合/新能源技术/全球化等多角度.",
+        "confidence": "low"
+      },
+      "notes": "Day 11 补跑新加. 设计意图: 给 full mode 展示'多角度聚合' 能力的机会"
+    }
+  ],
+
+  "_type_distribution": {
+    "refusal_expected": ["U1", "U11"],
+    "qualitative": ["U2", "U5", "U7"],
+    "multi_perspective": ["U3", "U4"],
+    "numeric_simple": ["U6", "U12"],
+    "multi_chunk_reasoning": ["U8"],
+    "table_extraction": ["U9"],
+    "synonym_recall": ["U10"],
+    "hyde_friendly": ["U13"],
+    "reranker_friendly": ["U14"],
+    "full_friendly": ["U15"]
+  },
+
+  "_td_coverage": {
+    "TD-10-3 is_refusal FN-2": ["U1", "U4", "U11"],
+    "TD-8-2 多口径错位": ["U3", "U4"],
+    "TD-6-5 紫金死穴": ["U5"],
+    "TD-8-1 表格切断": ["U9"]
+  }
+}

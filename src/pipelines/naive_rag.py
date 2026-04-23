@@ -82,6 +82,7 @@ class NaiveRAGPipeline:
                     "page": r["metadata"].get("page", "?"),
                     "type": r["metadata"].get("chunk_type", "?"),
                     "preview": r["content"][:100],
+                    "full_content": r["content"],   # Day 11 T1: RAGAS 用, 完整 chunk 不截断
                 }
                 for r in search_results
             ]

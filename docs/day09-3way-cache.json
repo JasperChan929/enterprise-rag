@@ -1,0 +1,1781 @@
+{
+  "_note": "Task 1 产出的三路缓存, 对应默认参数 (top_k=5, rrf_k=60, recall_mult=4). Task 2 直接复用",
+  "_generated_at": "2026-04-21 20:11:21",
+  "fixed_params": {
+    "top_k": 5,
+    "rrf_k": 60,
+    "recall_mult": 4
+  },
+  "per_query": [
+    {
+      "query_id": "U1",
+      "query_text": "比亚迪汽车业务2025年的毛利率是多少",
+      "filters": {
+        "company": "比亚迪"
+      },
+      "hybrid_topk": [
+        {
+          "company": "比亚迪",
+          "page": 90,
+          "chunk_type": "table",
+          "rrf_score": 0.0309,
+          "dense_rank": 9,
+          "bm25_rank": 1
+        },
+        {
+          "company": "比亚迪",
+          "page": 47,
+          "chunk_type": "table",
+          "rrf_score": 0.0291,
+          "dense_rank": 17,
+          "bm25_rank": 2
+        },
+        {
+          "company": "比亚迪",
+          "page": 266,
+          "chunk_type": "text",
+          "rrf_score": 0.0164,
+          "dense_rank": 1,
+          "bm25_rank": null
+        },
+        {
+          "company": "比亚迪",
+          "page": 245,
+          "chunk_type": "text",
+          "rrf_score": 0.0161,
+          "dense_rank": 2,
+          "bm25_rank": null
+        },
+        {
+          "company": "比亚迪",
+          "page": 209,
+          "chunk_type": "text",
+          "rrf_score": 0.0159,
+          "dense_rank": 3,
+          "bm25_rank": null
+        }
+      ],
+      "dense_top20": [
+        {
+          "company": "比亚迪",
+          "page": 266,
+          "chunk_type": "text",
+          "score": 0.7474
+        },
+        {
+          "company": "比亚迪",
+          "page": 245,
+          "chunk_type": "text",
+          "score": 0.7373
+        },
+        {
+          "company": "比亚迪",
+          "page": 209,
+          "chunk_type": "text",
+          "score": 0.7276
+        },
+        {
+          "company": "比亚迪",
+          "page": 126,
+          "chunk_type": "text",
+          "score": 0.726
+        },
+        {
+          "company": "比亚迪",
+          "page": 134,
+          "chunk_type": "text",
+          "score": 0.725
+        },
+        {
+          "company": "比亚迪",
+          "page": 213,
+          "chunk_type": "text",
+          "score": 0.7121
+        },
+        {
+          "company": "比亚迪",
+          "page": 252,
+          "chunk_type": "text",
+          "score": 0.7063
+        },
+        {
+          "company": "比亚迪",
+          "page": 224,
+          "chunk_type": "text",
+          "score": 0.7055
+        },
+        {
+          "company": "比亚迪",
+          "page": 90,
+          "chunk_type": "table",
+          "score": 0.7053
+        },
+        {
+          "company": "比亚迪",
+          "page": 137,
+          "chunk_type": "text",
+          "score": 0.6986
+        },
+        {
+          "company": "比亚迪",
+          "page": 202,
+          "chunk_type": "text",
+          "score": 0.6942
+        },
+        {
+          "company": "比亚迪",
+          "page": 108,
+          "chunk_type": "table",
+          "score": 0.692
+        },
+        {
+          "company": "比亚迪",
+          "page": 212,
+          "chunk_type": "text",
+          "score": 0.6915
+        },
+        {
+          "company": "比亚迪",
+          "page": 170,
+          "chunk_type": "text",
+          "score": 0.6902
+        },
+        {
+          "company": "比亚迪",
+          "page": 2,
+          "chunk_type": "text",
+          "score": 0.6896
+        },
+        {
+          "company": "比亚迪",
+          "page": 259,
+          "chunk_type": "text",
+          "score": 0.6888
+        },
+        {
+          "company": "比亚迪",
+          "page": 47,
+          "chunk_type": "table",
+          "score": 0.6881
+        },
+        {
+          "company": "比亚迪",
+          "page": 248,
+          "chunk_type": "text",
+          "score": 0.6869
+        },
+        {
+          "company": "比亚迪",
+          "page": 131,
+          "chunk_type": "text",
+          "score": 0.6842
+        },
+        {
+          "company": "比亚迪",
+          "page": 15,
+          "chunk_type": "text",
+          "score": 0.6834
+        }
+      ],
+      "bm25_top20": [
+        {
+          "company": "比亚迪",
+          "page": 90,
+          "chunk_type": "table",
+          "score": 15.9381
+        },
+        {
+          "company": "比亚迪",
+          "page": 47,
+          "chunk_type": "table",
+          "score": 14.9871
+        },
+        {
+          "company": "比亚迪",
+          "page": 165,
+          "chunk_type": "text",
+          "score": 14.9056
+        },
+        {
+          "company": "比亚迪",
+          "page": 226,
+          "chunk_type": "text",
+          "score": 14.84
+        },
+        {
+          "company": "比亚迪",
+          "page": 164,
+          "chunk_type": "text",
+          "score": 14.6482
+        },
+        {
+          "company": "比亚迪",
+          "page": 164,
+          "chunk_type": "text",
+          "score": 14.5664
+        },
+        {
+          "company": "比亚迪",
+          "page": 164,
+          "chunk_type": "text",
+          "score": 14.4189
+        },
+        {
+          "company": "比亚迪",
+          "page": 250,
+          "chunk_type": "text",
+          "score": 14.3744
+        },
+        {
+          "company": "比亚迪",
+          "page": 86,
+          "chunk_type": "text",
+          "score": 14.0871
+        },
+        {
+          "company": "比亚迪",
+          "page": 16,
+          "chunk_type": "text",
+          "score": 13.6992
+        },
+        {
+          "company": "比亚迪",
+          "page": 118,
+          "chunk_type": "table",
+          "score": 13.5941
+        },
+        {
+          "company": "比亚迪",
+          "page": 89,
+          "chunk_type": "table",
+          "score": 13.53
+        },
+        {
+          "company": "比亚迪",
+          "page": 164,
+          "chunk_type": "text",
+          "score": 12.6407
+        },
+        {
+          "company": "比亚迪",
+          "page": 13,
+          "chunk_type": "text",
+          "score": 12.432
+        },
+        {
+          "company": "比亚迪",
+          "page": 85,
+          "chunk_type": "text",
+          "score": 12.3666
+        },
+        {
+          "company": "比亚迪",
+          "page": 262,
+          "chunk_type": "text",
+          "score": 12.3572
+        },
+        {
+          "company": "比亚迪",
+          "page": 165,
+          "chunk_type": "text",
+          "score": 12.3173
+        },
+        {
+          "company": "比亚迪",
+          "page": 192,
+          "chunk_type": "text",
+          "score": 12.3104
+        },
+        {
+          "company": "比亚迪",
+          "page": 226,
+          "chunk_type": "text",
+          "score": 12.148
+        },
+        {
+          "company": "比亚迪",
+          "page": 86,
+          "chunk_type": "text",
+          "score": 12.0728
+        }
+      ],
+      "elapsed_ms": 112.8,
+      "hybrid_only_ms": 53.6
+    },
+    {
+      "query_id": "U2",
+      "query_text": "宁德时代磷酸铁锂产品2025年的情况",
+      "filters": {
+        "company": "宁德时代"
+      },
+      "hybrid_topk": [
+        {
+          "company": "宁德时代",
+          "page": 19,
+          "chunk_type": "text",
+          "rrf_score": 0.0306,
+          "dense_rank": 9,
+          "bm25_rank": 2
+        },
+        {
+          "company": "宁德时代",
+          "page": 3,
+          "chunk_type": "text",
+          "rrf_score": 0.0302,
+          "dense_rank": 2,
+          "bm25_rank": 11
+        },
+        {
+          "company": "宁德时代",
+          "page": 17,
+          "chunk_type": "text",
+          "rrf_score": 0.0279,
+          "dense_rank": 20,
+          "bm25_rank": 5
+        },
+        {
+          "company": "宁德时代",
+          "page": 2,
+          "chunk_type": "text",
+          "rrf_score": 0.0278,
+          "dense_rank": 6,
+          "bm25_rank": 19
+        },
+        {
+          "company": "宁德时代",
+          "page": 25,
+          "chunk_type": "text",
+          "rrf_score": 0.0276,
+          "dense_rank": 10,
+          "bm25_rank": 15
+        }
+      ],
+      "dense_top20": [
+        {
+          "company": "宁德时代",
+          "page": 24,
+          "chunk_type": "text",
+          "score": 0.6835
+        },
+        {
+          "company": "宁德时代",
+          "page": 3,
+          "chunk_type": "text",
+          "score": 0.6611
+        },
+        {
+          "company": "宁德时代",
+          "page": 29,
+          "chunk_type": "text",
+          "score": 0.6463
+        },
+        {
+          "company": "宁德时代",
+          "page": 90,
+          "chunk_type": "table",
+          "score": 0.6349
+        },
+        {
+          "company": "宁德时代",
+          "page": 29,
+          "chunk_type": "text",
+          "score": 0.6318
+        },
+        {
+          "company": "宁德时代",
+          "page": 2,
+          "chunk_type": "text",
+          "score": 0.623
+        },
+        {
+          "company": "宁德时代",
+          "page": 2,
+          "chunk_type": "text",
+          "score": 0.618
+        },
+        {
+          "company": "宁德时代",
+          "page": 40,
+          "chunk_type": "text",
+          "score": 0.6174
+        },
+        {
+          "company": "宁德时代",
+          "page": 19,
+          "chunk_type": "text",
+          "score": 0.6117
+        },
+        {
+          "company": "宁德时代",
+          "page": 25,
+          "chunk_type": "text",
+          "score": 0.6102
+        },
+        {
+          "company": "宁德时代",
+          "page": 14,
+          "chunk_type": "text",
+          "score": 0.6077
+        },
+        {
+          "company": "宁德时代",
+          "page": 16,
+          "chunk_type": "text",
+          "score": 0.6049
+        },
+        {
+          "company": "宁德时代",
+          "page": 15,
+          "chunk_type": "text",
+          "score": 0.6048
+        },
+        {
+          "company": "宁德时代",
+          "page": 34,
+          "chunk_type": "text",
+          "score": 0.6044
+        },
+        {
+          "company": "宁德时代",
+          "page": 18,
+          "chunk_type": "text",
+          "score": 0.6009
+        },
+        {
+          "company": "宁德时代",
+          "page": 35,
+          "chunk_type": "text",
+          "score": 0.5981
+        },
+        {
+          "company": "宁德时代",
+          "page": 88,
+          "chunk_type": "text",
+          "score": 0.5945
+        },
+        {
+          "company": "宁德时代",
+          "page": 196,
+          "chunk_type": "text",
+          "score": 0.5919
+        },
+        {
+          "company": "宁德时代",
+          "page": 36,
+          "chunk_type": "text",
+          "score": 0.5913
+        },
+        {
+          "company": "宁德时代",
+          "page": 17,
+          "chunk_type": "text",
+          "score": 0.5912
+        }
+      ],
+      "bm25_top20": [
+        {
+          "company": "宁德时代",
+          "page": 14,
+          "chunk_type": "text",
+          "score": 13.8291
+        },
+        {
+          "company": "宁德时代",
+          "page": 19,
+          "chunk_type": "text",
+          "score": 12.1622
+        },
+        {
+          "company": "宁德时代",
+          "page": 26,
+          "chunk_type": "text",
+          "score": 10.9209
+        },
+        {
+          "company": "宁德时代",
+          "page": 21,
+          "chunk_type": "text",
+          "score": 10.7267
+        },
+        {
+          "company": "宁德时代",
+          "page": 17,
+          "chunk_type": "text",
+          "score": 10.4298
+        },
+        {
+          "company": "宁德时代",
+          "page": 104,
+          "chunk_type": "text",
+          "score": 9.7379
+        },
+        {
+          "company": "宁德时代",
+          "page": 68,
+          "chunk_type": "text",
+          "score": 9.573
+        },
+        {
+          "company": "宁德时代",
+          "page": 107,
+          "chunk_type": "text",
+          "score": 9.5373
+        },
+        {
+          "company": "宁德时代",
+          "page": 47,
+          "chunk_type": "text",
+          "score": 8.8443
+        },
+        {
+          "company": "宁德时代",
+          "page": 21,
+          "chunk_type": "text",
+          "score": 8.7911
+        },
+        {
+          "company": "宁德时代",
+          "page": 3,
+          "chunk_type": "text",
+          "score": 8.7
+        },
+        {
+          "company": "宁德时代",
+          "page": 111,
+          "chunk_type": "text",
+          "score": 8.6611
+        },
+        {
+          "company": "宁德时代",
+          "page": 223,
+          "chunk_type": "text",
+          "score": 8.6335
+        },
+        {
+          "company": "宁德时代",
+          "page": 133,
+          "chunk_type": "text",
+          "score": 8.4303
+        },
+        {
+          "company": "宁德时代",
+          "page": 25,
+          "chunk_type": "text",
+          "score": 8.4096
+        },
+        {
+          "company": "宁德时代",
+          "page": 109,
+          "chunk_type": "text",
+          "score": 8.3119
+        },
+        {
+          "company": "宁德时代",
+          "page": 91,
+          "chunk_type": "text",
+          "score": 8.2485
+        },
+        {
+          "company": "宁德时代",
+          "page": 16,
+          "chunk_type": "text",
+          "score": 8.2177
+        },
+        {
+          "company": "宁德时代",
+          "page": 2,
+          "chunk_type": "text",
+          "score": 8.2095
+        },
+        {
+          "company": "宁德时代",
+          "page": 162,
+          "chunk_type": "table",
+          "score": 8.0973
+        }
+      ],
+      "elapsed_ms": 118.4,
+      "hybrid_only_ms": 52.0
+    },
+    {
+      "query_id": "U3",
+      "query_text": "国电南自2024年度净利润是多少",
+      "filters": {
+        "company": "国电南自"
+      },
+      "hybrid_topk": [
+        {
+          "company": "国电南自",
+          "page": 213,
+          "chunk_type": "table",
+          "rrf_score": 0.0317,
+          "dense_rank": 3,
+          "bm25_rank": 3
+        },
+        {
+          "company": "国电南自",
+          "page": 251,
+          "chunk_type": "table",
+          "rrf_score": 0.0313,
+          "dense_rank": 7,
+          "bm25_rank": 1
+        },
+        {
+          "company": "国电南自",
+          "page": 32,
+          "chunk_type": "table",
+          "rrf_score": 0.0313,
+          "dense_rank": 6,
+          "bm25_rank": 2
+        },
+        {
+          "company": "国电南自",
+          "page": 126,
+          "chunk_type": "text",
+          "rrf_score": 0.0308,
+          "dense_rank": 5,
+          "bm25_rank": 5
+        },
+        {
+          "company": "国电南自",
+          "page": 101,
+          "chunk_type": "text",
+          "rrf_score": 0.0295,
+          "dense_rank": 4,
+          "bm25_rank": 12
+        }
+      ],
+      "dense_top20": [
+        {
+          "company": "国电南自",
+          "page": 33,
+          "chunk_type": "text",
+          "score": 0.6989
+        },
+        {
+          "company": "国电南自",
+          "page": 22,
+          "chunk_type": "text",
+          "score": 0.6956
+        },
+        {
+          "company": "国电南自",
+          "page": 213,
+          "chunk_type": "table",
+          "score": 0.6789
+        },
+        {
+          "company": "国电南自",
+          "page": 101,
+          "chunk_type": "text",
+          "score": 0.6753
+        },
+        {
+          "company": "国电南自",
+          "page": 126,
+          "chunk_type": "text",
+          "score": 0.6725
+        },
+        {
+          "company": "国电南自",
+          "page": 32,
+          "chunk_type": "table",
+          "score": 0.6713
+        },
+        {
+          "company": "国电南自",
+          "page": 251,
+          "chunk_type": "table",
+          "score": 0.6709
+        },
+        {
+          "company": "国电南自",
+          "page": 113,
+          "chunk_type": "text",
+          "score": 0.6686
+        },
+        {
+          "company": "国电南自",
+          "page": 245,
+          "chunk_type": "text",
+          "score": 0.6675
+        },
+        {
+          "company": "国电南自",
+          "page": 138,
+          "chunk_type": "text",
+          "score": 0.667
+        },
+        {
+          "company": "国电南自",
+          "page": 231,
+          "chunk_type": "text",
+          "score": 0.6644
+        },
+        {
+          "company": "国电南自",
+          "page": 282,
+          "chunk_type": "table",
+          "score": 0.6636
+        },
+        {
+          "company": "国电南自",
+          "page": 242,
+          "chunk_type": "table",
+          "score": 0.6567
+        },
+        {
+          "company": "国电南自",
+          "page": 220,
+          "chunk_type": "text",
+          "score": 0.6564
+        },
+        {
+          "company": "国电南自",
+          "page": 195,
+          "chunk_type": "text",
+          "score": 0.655
+        },
+        {
+          "company": "国电南自",
+          "page": 71,
+          "chunk_type": "text",
+          "score": 0.6535
+        },
+        {
+          "company": "国电南自",
+          "page": 75,
+          "chunk_type": "text",
+          "score": 0.6523
+        },
+        {
+          "company": "国电南自",
+          "page": 27,
+          "chunk_type": "text",
+          "score": 0.6499
+        },
+        {
+          "company": "国电南自",
+          "page": 25,
+          "chunk_type": "text",
+          "score": 0.6495
+        },
+        {
+          "company": "国电南自",
+          "page": 232,
+          "chunk_type": "text",
+          "score": 0.6493
+        }
+      ],
+      "bm25_top20": [
+        {
+          "company": "国电南自",
+          "page": 251,
+          "chunk_type": "table",
+          "score": 11.7309
+        },
+        {
+          "company": "国电南自",
+          "page": 32,
+          "chunk_type": "table",
+          "score": 11.3042
+        },
+        {
+          "company": "国电南自",
+          "page": 213,
+          "chunk_type": "table",
+          "score": 10.7628
+        },
+        {
+          "company": "国电南自",
+          "page": 146,
+          "chunk_type": "text",
+          "score": 9.9475
+        },
+        {
+          "company": "国电南自",
+          "page": 126,
+          "chunk_type": "text",
+          "score": 9.8725
+        },
+        {
+          "company": "国电南自",
+          "page": 146,
+          "chunk_type": "text",
+          "score": 9.8117
+        },
+        {
+          "company": "国电南自",
+          "page": 54,
+          "chunk_type": "table",
+          "score": 9.5963
+        },
+        {
+          "company": "国电南自",
+          "page": 145,
+          "chunk_type": "text",
+          "score": 8.9322
+        },
+        {
+          "company": "国电南自",
+          "page": 174,
+          "chunk_type": "text",
+          "score": 8.8105
+        },
+        {
+          "company": "国电南自",
+          "page": 175,
+          "chunk_type": "text",
+          "score": 8.7665
+        },
+        {
+          "company": "国电南自",
+          "page": 1,
+          "chunk_type": "text",
+          "score": 8.6707
+        },
+        {
+          "company": "国电南自",
+          "page": 101,
+          "chunk_type": "text",
+          "score": 8.5766
+        },
+        {
+          "company": "国电南自",
+          "page": 145,
+          "chunk_type": "text",
+          "score": 8.5359
+        },
+        {
+          "company": "国电南自",
+          "page": 174,
+          "chunk_type": "text",
+          "score": 8.4999
+        },
+        {
+          "company": "国电南自",
+          "page": 11,
+          "chunk_type": "text",
+          "score": 8.4245
+        },
+        {
+          "company": "国电南自",
+          "page": 51,
+          "chunk_type": "text",
+          "score": 8.3602
+        },
+        {
+          "company": "国电南自",
+          "page": 175,
+          "chunk_type": "text",
+          "score": 8.3308
+        },
+        {
+          "company": "国电南自",
+          "page": 175,
+          "chunk_type": "text",
+          "score": 8.3195
+        },
+        {
+          "company": "国电南自",
+          "page": 51,
+          "chunk_type": "text",
+          "score": 8.2063
+        },
+        {
+          "company": "国电南自",
+          "page": 175,
+          "chunk_type": "text",
+          "score": 8.1447
+        }
+      ],
+      "elapsed_ms": 86.0,
+      "hybrid_only_ms": 38.8
+    },
+    {
+      "query_id": "U4",
+      "query_text": "招商银行2025年不良贷款率",
+      "filters": {
+        "company": "招商银行"
+      },
+      "hybrid_topk": [
+        {
+          "company": "招商银行",
+          "page": 45,
+          "chunk_type": "text",
+          "rrf_score": 0.0298,
+          "dense_rank": 13,
+          "bm25_rank": 2
+        },
+        {
+          "company": "招商银行",
+          "page": 5,
+          "chunk_type": "text",
+          "rrf_score": 0.0296,
+          "dense_rank": 16,
+          "bm25_rank": 1
+        },
+        {
+          "company": "招商银行",
+          "page": 50,
+          "chunk_type": "text",
+          "rrf_score": 0.0294,
+          "dense_rank": 14,
+          "bm25_rank": 3
+        },
+        {
+          "company": "招商银行",
+          "page": 31,
+          "chunk_type": "text",
+          "rrf_score": 0.026,
+          "dense_rank": 20,
+          "bm25_rank": 14
+        },
+        {
+          "company": "招商银行",
+          "page": 34,
+          "chunk_type": "text",
+          "rrf_score": 0.0164,
+          "dense_rank": 1,
+          "bm25_rank": null
+        }
+      ],
+      "dense_top20": [
+        {
+          "company": "招商银行",
+          "page": 34,
+          "chunk_type": "text",
+          "score": 0.7503
+        },
+        {
+          "company": "招商银行",
+          "page": 35,
+          "chunk_type": "text",
+          "score": 0.7493
+        },
+        {
+          "company": "招商银行",
+          "page": 32,
+          "chunk_type": "text",
+          "score": 0.7439
+        },
+        {
+          "company": "招商银行",
+          "page": 33,
+          "chunk_type": "text",
+          "score": 0.7391
+        },
+        {
+          "company": "招商银行",
+          "page": 263,
+          "chunk_type": "text",
+          "score": 0.7258
+        },
+        {
+          "company": "招商银行",
+          "page": 49,
+          "chunk_type": "text",
+          "score": 0.7012
+        },
+        {
+          "company": "招商银行",
+          "page": 55,
+          "chunk_type": "text",
+          "score": 0.7009
+        },
+        {
+          "company": "招商银行",
+          "page": 53,
+          "chunk_type": "text",
+          "score": 0.6844
+        },
+        {
+          "company": "招商银行",
+          "page": 36,
+          "chunk_type": "text",
+          "score": 0.6746
+        },
+        {
+          "company": "招商银行",
+          "page": 10,
+          "chunk_type": "text",
+          "score": 0.6695
+        },
+        {
+          "company": "招商银行",
+          "page": 349,
+          "chunk_type": "text",
+          "score": 0.6688
+        },
+        {
+          "company": "招商银行",
+          "page": 244,
+          "chunk_type": "text",
+          "score": 0.6667
+        },
+        {
+          "company": "招商银行",
+          "page": 45,
+          "chunk_type": "text",
+          "score": 0.6667
+        },
+        {
+          "company": "招商银行",
+          "page": 50,
+          "chunk_type": "text",
+          "score": 0.663
+        },
+        {
+          "company": "招商银行",
+          "page": 21,
+          "chunk_type": "text",
+          "score": 0.6615
+        },
+        {
+          "company": "招商银行",
+          "page": 5,
+          "chunk_type": "text",
+          "score": 0.6572
+        },
+        {
+          "company": "招商银行",
+          "page": 344,
+          "chunk_type": "text",
+          "score": 0.6526
+        },
+        {
+          "company": "招商银行",
+          "page": 183,
+          "chunk_type": "text",
+          "score": 0.6519
+        },
+        {
+          "company": "招商银行",
+          "page": 178,
+          "chunk_type": "text",
+          "score": 0.6517
+        },
+        {
+          "company": "招商银行",
+          "page": 31,
+          "chunk_type": "text",
+          "score": 0.6514
+        }
+      ],
+      "bm25_top20": [
+        {
+          "company": "招商银行",
+          "page": 5,
+          "chunk_type": "text",
+          "score": 13.1802
+        },
+        {
+          "company": "招商银行",
+          "page": 45,
+          "chunk_type": "text",
+          "score": 10.0725
+        },
+        {
+          "company": "招商银行",
+          "page": 50,
+          "chunk_type": "text",
+          "score": 8.9064
+        },
+        {
+          "company": "招商银行",
+          "page": 5,
+          "chunk_type": "text",
+          "score": 8.7689
+        },
+        {
+          "company": "招商银行",
+          "page": 16,
+          "chunk_type": "text",
+          "score": 8.6595
+        },
+        {
+          "company": "招商银行",
+          "page": 120,
+          "chunk_type": "text",
+          "score": 7.8755
+        },
+        {
+          "company": "招商银行",
+          "page": 15,
+          "chunk_type": "text",
+          "score": 7.6956
+        },
+        {
+          "company": "招商银行",
+          "page": 341,
+          "chunk_type": "text",
+          "score": 7.6137
+        },
+        {
+          "company": "招商银行",
+          "page": 106,
+          "chunk_type": "text",
+          "score": 7.5696
+        },
+        {
+          "company": "招商银行",
+          "page": 254,
+          "chunk_type": "text",
+          "score": 7.2654
+        },
+        {
+          "company": "招商银行",
+          "page": 47,
+          "chunk_type": "text",
+          "score": 7.0649
+        },
+        {
+          "company": "招商银行",
+          "page": 127,
+          "chunk_type": "text",
+          "score": 7.06
+        },
+        {
+          "company": "招商银行",
+          "page": 129,
+          "chunk_type": "text",
+          "score": 7.06
+        },
+        {
+          "company": "招商银行",
+          "page": 31,
+          "chunk_type": "text",
+          "score": 7.0558
+        },
+        {
+          "company": "招商银行",
+          "page": 83,
+          "chunk_type": "text",
+          "score": 6.9933
+        },
+        {
+          "company": "招商银行",
+          "page": 343,
+          "chunk_type": "text",
+          "score": 6.9617
+        },
+        {
+          "company": "招商银行",
+          "page": 342,
+          "chunk_type": "text",
+          "score": 6.9519
+        },
+        {
+          "company": "招商银行",
+          "page": 71,
+          "chunk_type": "text",
+          "score": 6.9358
+        },
+        {
+          "company": "招商银行",
+          "page": 41,
+          "chunk_type": "text",
+          "score": 6.92
+        },
+        {
+          "company": "招商银行",
+          "page": 188,
+          "chunk_type": "text",
+          "score": 6.8567
+        }
+      ],
+      "elapsed_ms": 85.7,
+      "hybrid_only_ms": 52.6
+    },
+    {
+      "query_id": "U5",
+      "query_text": "紫金矿业海外业务的营收和风险",
+      "filters": {
+        "company": "紫金矿业"
+      },
+      "hybrid_topk": [
+        {
+          "company": "紫金矿业",
+          "page": 12,
+          "chunk_type": "text",
+          "rrf_score": 0.0311,
+          "dense_rank": 2,
+          "bm25_rank": 7
+        },
+        {
+          "company": "紫金矿业",
+          "page": 290,
+          "chunk_type": "text",
+          "rrf_score": 0.0269,
+          "dense_rank": 18,
+          "bm25_rank": 11
+        },
+        {
+          "company": "紫金矿业",
+          "page": 10,
+          "chunk_type": "text",
+          "rrf_score": 0.0164,
+          "dense_rank": 1,
+          "bm25_rank": null
+        },
+        {
+          "company": "紫金矿业",
+          "page": 59,
+          "chunk_type": "text",
+          "rrf_score": 0.0164,
+          "dense_rank": null,
+          "bm25_rank": 1
+        },
+        {
+          "company": "紫金矿业",
+          "page": 8,
+          "chunk_type": "text",
+          "rrf_score": 0.0161,
+          "dense_rank": null,
+          "bm25_rank": 2
+        }
+      ],
+      "dense_top20": [
+        {
+          "company": "紫金矿业",
+          "page": 10,
+          "chunk_type": "text",
+          "score": 0.6629
+        },
+        {
+          "company": "紫金矿业",
+          "page": 12,
+          "chunk_type": "text",
+          "score": 0.6292
+        },
+        {
+          "company": "紫金矿业",
+          "page": 281,
+          "chunk_type": "text",
+          "score": 0.6292
+        },
+        {
+          "company": "紫金矿业",
+          "page": 328,
+          "chunk_type": "text",
+          "score": 0.6274
+        },
+        {
+          "company": "紫金矿业",
+          "page": 279,
+          "chunk_type": "text",
+          "score": 0.624
+        },
+        {
+          "company": "紫金矿业",
+          "page": 105,
+          "chunk_type": "text",
+          "score": 0.6223
+        },
+        {
+          "company": "紫金矿业",
+          "page": 110,
+          "chunk_type": "text",
+          "score": 0.6219
+        },
+        {
+          "company": "紫金矿业",
+          "page": 9,
+          "chunk_type": "text",
+          "score": 0.6157
+        },
+        {
+          "company": "紫金矿业",
+          "page": 42,
+          "chunk_type": "text",
+          "score": 0.6129
+        },
+        {
+          "company": "紫金矿业",
+          "page": 1,
+          "chunk_type": "text",
+          "score": 0.6123
+        },
+        {
+          "company": "紫金矿业",
+          "page": 303,
+          "chunk_type": "text",
+          "score": 0.6084
+        },
+        {
+          "company": "紫金矿业",
+          "page": 107,
+          "chunk_type": "text",
+          "score": 0.606
+        },
+        {
+          "company": "紫金矿业",
+          "page": 68,
+          "chunk_type": "text",
+          "score": 0.6049
+        },
+        {
+          "company": "紫金矿业",
+          "page": 111,
+          "chunk_type": "text",
+          "score": 0.6041
+        },
+        {
+          "company": "紫金矿业",
+          "page": 146,
+          "chunk_type": "text",
+          "score": 0.6041
+        },
+        {
+          "company": "紫金矿业",
+          "page": 344,
+          "chunk_type": "text",
+          "score": 0.6019
+        },
+        {
+          "company": "紫金矿业",
+          "page": 336,
+          "chunk_type": "table",
+          "score": 0.6011
+        },
+        {
+          "company": "紫金矿业",
+          "page": 290,
+          "chunk_type": "text",
+          "score": 0.598
+        },
+        {
+          "company": "紫金矿业",
+          "page": 283,
+          "chunk_type": "text",
+          "score": 0.5971
+        },
+        {
+          "company": "紫金矿业",
+          "page": 7,
+          "chunk_type": "text",
+          "score": 0.5968
+        }
+      ],
+      "bm25_top20": [
+        {
+          "company": "紫金矿业",
+          "page": 59,
+          "chunk_type": "text",
+          "score": 10.2039
+        },
+        {
+          "company": "紫金矿业",
+          "page": 8,
+          "chunk_type": "text",
+          "score": 9.1468
+        },
+        {
+          "company": "紫金矿业",
+          "page": 59,
+          "chunk_type": "text",
+          "score": 9.084
+        },
+        {
+          "company": "紫金矿业",
+          "page": 35,
+          "chunk_type": "text",
+          "score": 8.8071
+        },
+        {
+          "company": "紫金矿业",
+          "page": 343,
+          "chunk_type": "text",
+          "score": 8.7319
+        },
+        {
+          "company": "紫金矿业",
+          "page": 296,
+          "chunk_type": "text",
+          "score": 8.6032
+        },
+        {
+          "company": "紫金矿业",
+          "page": 12,
+          "chunk_type": "text",
+          "score": 8.5682
+        },
+        {
+          "company": "紫金矿业",
+          "page": 289,
+          "chunk_type": "text",
+          "score": 8.4895
+        },
+        {
+          "company": "紫金矿业",
+          "page": 294,
+          "chunk_type": "text",
+          "score": 8.2809
+        },
+        {
+          "company": "紫金矿业",
+          "page": 60,
+          "chunk_type": "text",
+          "score": 8.2086
+        },
+        {
+          "company": "紫金矿业",
+          "page": 290,
+          "chunk_type": "text",
+          "score": 8.129
+        },
+        {
+          "company": "紫金矿业",
+          "page": 287,
+          "chunk_type": "text",
+          "score": 7.9681
+        },
+        {
+          "company": "紫金矿业",
+          "page": 52,
+          "chunk_type": "text",
+          "score": 7.7876
+        },
+        {
+          "company": "紫金矿业",
+          "page": 59,
+          "chunk_type": "text",
+          "score": 7.6056
+        },
+        {
+          "company": "紫金矿业",
+          "page": 292,
+          "chunk_type": "text",
+          "score": 7.5651
+        },
+        {
+          "company": "紫金矿业",
+          "page": 293,
+          "chunk_type": "text",
+          "score": 7.402
+        },
+        {
+          "company": "紫金矿业",
+          "page": 225,
+          "chunk_type": "text",
+          "score": 7.3812
+        },
+        {
+          "company": "紫金矿业",
+          "page": 41,
+          "chunk_type": "text",
+          "score": 7.3767
+        },
+        {
+          "company": "紫金矿业",
+          "page": 59,
+          "chunk_type": "text",
+          "score": 7.3516
+        },
+        {
+          "company": "紫金矿业",
+          "page": 36,
+          "chunk_type": "text",
+          "score": 7.1659
+        }
+      ],
+      "elapsed_ms": 73.8,
+      "hybrid_only_ms": 34.9
+    },
+    {
+      "query_id": "U6",
+      "query_text": "宁德时代2025年营业收入是多少",
+      "filters": {
+        "company": "宁德时代"
+      },
+      "hybrid_topk": [
+        {
+          "company": "宁德时代",
+          "page": 108,
+          "chunk_type": "text",
+          "rrf_score": 0.0296,
+          "dense_rank": 1,
+          "bm25_rank": 16
+        },
+        {
+          "company": "宁德时代",
+          "page": 28,
+          "chunk_type": "text",
+          "rrf_score": 0.0292,
+          "dense_rank": 10,
+          "bm25_rank": 7
+        },
+        {
+          "company": "宁德时代",
+          "page": 19,
+          "chunk_type": "text",
+          "rrf_score": 0.0291,
+          "dense_rank": 13,
+          "bm25_rank": 5
+        },
+        {
+          "company": "宁德时代",
+          "page": 18,
+          "chunk_type": "text",
+          "rrf_score": 0.0262,
+          "dense_rank": 20,
+          "bm25_rank": 13
+        },
+        {
+          "company": "宁德时代",
+          "page": 223,
+          "chunk_type": "text",
+          "rrf_score": 0.0261,
+          "dense_rank": 16,
+          "bm25_rank": 17
+        }
+      ],
+      "dense_top20": [
+        {
+          "company": "宁德时代",
+          "page": 108,
+          "chunk_type": "text",
+          "score": 0.6818
+        },
+        {
+          "company": "宁德时代",
+          "page": 198,
+          "chunk_type": "text",
+          "score": 0.6755
+        },
+        {
+          "company": "宁德时代",
+          "page": 196,
+          "chunk_type": "text",
+          "score": 0.6723
+        },
+        {
+          "company": "宁德时代",
+          "page": 26,
+          "chunk_type": "text",
+          "score": 0.6639
+        },
+        {
+          "company": "宁德时代",
+          "page": 188,
+          "chunk_type": "text",
+          "score": 0.653
+        },
+        {
+          "company": "宁德时代",
+          "page": 228,
+          "chunk_type": "text",
+          "score": 0.6479
+        },
+        {
+          "company": "宁德时代",
+          "page": 177,
+          "chunk_type": "text",
+          "score": 0.6416
+        },
+        {
+          "company": "宁德时代",
+          "page": 197,
+          "chunk_type": "text",
+          "score": 0.641
+        },
+        {
+          "company": "宁德时代",
+          "page": 221,
+          "chunk_type": "text",
+          "score": 0.6374
+        },
+        {
+          "company": "宁德时代",
+          "page": 28,
+          "chunk_type": "text",
+          "score": 0.6358
+        },
+        {
+          "company": "宁德时代",
+          "page": 116,
+          "chunk_type": "text",
+          "score": 0.6357
+        },
+        {
+          "company": "宁德时代",
+          "page": 121,
+          "chunk_type": "text",
+          "score": 0.6332
+        },
+        {
+          "company": "宁德时代",
+          "page": 19,
+          "chunk_type": "text",
+          "score": 0.6326
+        },
+        {
+          "company": "宁德时代",
+          "page": 189,
+          "chunk_type": "text",
+          "score": 0.6325
+        },
+        {
+          "company": "宁德时代",
+          "page": 162,
+          "chunk_type": "text",
+          "score": 0.632
+        },
+        {
+          "company": "宁德时代",
+          "page": 223,
+          "chunk_type": "text",
+          "score": 0.6305
+        },
+        {
+          "company": "宁德时代",
+          "page": 57,
+          "chunk_type": "text",
+          "score": 0.6302
+        },
+        {
+          "company": "宁德时代",
+          "page": 203,
+          "chunk_type": "text",
+          "score": 0.6286
+        },
+        {
+          "company": "宁德时代",
+          "page": 59,
+          "chunk_type": "text",
+          "score": 0.6286
+        },
+        {
+          "company": "宁德时代",
+          "page": 18,
+          "chunk_type": "text",
+          "score": 0.6246
+        }
+      ],
+      "bm25_top20": [
+        {
+          "company": "宁德时代",
+          "page": 30,
+          "chunk_type": "text",
+          "score": 10.3097
+        },
+        {
+          "company": "宁德时代",
+          "page": 107,
+          "chunk_type": "text",
+          "score": 9.5373
+        },
+        {
+          "company": "宁德时代",
+          "page": 25,
+          "chunk_type": "text",
+          "score": 9.0101
+        },
+        {
+          "company": "宁德时代",
+          "page": 111,
+          "chunk_type": "text",
+          "score": 8.6611
+        },
+        {
+          "company": "宁德时代",
+          "page": 19,
+          "chunk_type": "text",
+          "score": 8.4777
+        },
+        {
+          "company": "宁德时代",
+          "page": 24,
+          "chunk_type": "table",
+          "score": 8.4752
+        },
+        {
+          "company": "宁德时代",
+          "page": 28,
+          "chunk_type": "text",
+          "score": 8.4405
+        },
+        {
+          "company": "宁德时代",
+          "page": 30,
+          "chunk_type": "table",
+          "score": 8.3646
+        },
+        {
+          "company": "宁德时代",
+          "page": 104,
+          "chunk_type": "text",
+          "score": 8.3224
+        },
+        {
+          "company": "宁德时代",
+          "page": 162,
+          "chunk_type": "table",
+          "score": 8.0973
+        },
+        {
+          "company": "宁德时代",
+          "page": 65,
+          "chunk_type": "table",
+          "score": 8.0764
+        },
+        {
+          "company": "宁德时代",
+          "page": 195,
+          "chunk_type": "text",
+          "score": 8.0277
+        },
+        {
+          "company": "宁德时代",
+          "page": 18,
+          "chunk_type": "text",
+          "score": 7.8809
+        },
+        {
+          "company": "宁德时代",
+          "page": 231,
+          "chunk_type": "text",
+          "score": 7.8218
+        },
+        {
+          "company": "宁德时代",
+          "page": 68,
+          "chunk_type": "text",
+          "score": 7.7451
+        },
+        {
+          "company": "宁德时代",
+          "page": 108,
+          "chunk_type": "text",
+          "score": 7.6243
+        },
+        {
+          "company": "宁德时代",
+          "page": 223,
+          "chunk_type": "text",
+          "score": 7.4599
+        },
+        {
+          "company": "宁德时代",
+          "page": 133,
+          "chunk_type": "text",
+          "score": 7.216
+        },
+        {
+          "company": "宁德时代",
+          "page": 69,
+          "chunk_type": "table",
+          "score": 7.19
+        },
+        {
+          "company": "宁德时代",
+          "page": 109,
+          "chunk_type": "text",
+          "score": 7.1566
+        }
+      ],
+      "elapsed_ms": 170.3,
+      "hybrid_only_ms": 41.1
+    }
+  ]
+}

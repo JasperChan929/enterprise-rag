@@ -1,0 +1,755 @@
+{
+  "phase1": [
+    {
+      "id": "U1",
+      "gold_count": 0,
+      "is_empty": true
+    },
+    {
+      "id": "U2",
+      "gold_count": 4,
+      "dense_hits": 2,
+      "dense_rank": 11,
+      "bm25_hits": 5,
+      "bm25_rank": 1,
+      "hybrid_hits": 2,
+      "hybrid_rank": 3,
+      "hybrid_top5_hits": 1,
+      "diagnosis": "检索 OK (L2 LLM 层或 L2a 口径)"
+    },
+    {
+      "id": "U3",
+      "gold_count": 9,
+      "dense_hits": 1,
+      "dense_rank": 10,
+      "bm25_hits": 1,
+      "bm25_rank": 15,
+      "hybrid_hits": 1,
+      "hybrid_rank": 6,
+      "hybrid_top5_hits": 0,
+      "diagnosis": "RRF 融合问题 (单路有但 Top-5 没进)"
+    },
+    {
+      "id": "U4",
+      "gold_count": 8,
+      "dense_hits": 4,
+      "dense_rank": 13,
+      "bm25_hits": 7,
+      "bm25_rank": 1,
+      "hybrid_hits": 5,
+      "hybrid_rank": 1,
+      "hybrid_top5_hits": 4,
+      "diagnosis": "检索 OK (L2 LLM 层或 L2a 口径)"
+    },
+    {
+      "id": "U5",
+      "gold_count": 9,
+      "dense_hits": 1,
+      "dense_rank": 9,
+      "bm25_hits": 7,
+      "bm25_rank": 1,
+      "hybrid_hits": 1,
+      "hybrid_rank": 7,
+      "hybrid_top5_hits": 0,
+      "diagnosis": "RRF 融合问题 (单路有但 Top-5 没进)"
+    },
+    {
+      "id": "U6",
+      "gold_count": 6,
+      "dense_hits": 1,
+      "dense_rank": 11,
+      "bm25_hits": 3,
+      "bm25_rank": 6,
+      "hybrid_hits": 2,
+      "hybrid_rank": 11,
+      "hybrid_top5_hits": 0,
+      "diagnosis": "RRF 融合问题 (单路有但 Top-5 没进)"
+    }
+  ],
+  "phase2": [
+    {
+      "query_id": "U3",
+      "mode": "hybrid",
+      "use_reranker": false,
+      "actual_mode": "hybrid",
+      "routing_decision": null,
+      "top5_pages": [
+        213,
+        251,
+        32,
+        126,
+        101
+      ],
+      "gold_hits": 0,
+      "gold_total": 9,
+      "first_rank": null,
+      "answer_correct": false,
+      "answer_reason": "关键数字未出现",
+      "answer_preview": "根据已有资料无法回答此问题。\n\n参考资料中提供了国电南自部分子公司2023年和2024年的净利润数据，以及审计报告确认其财务报表公允反映了经营成果，但未提供国电南自合并层面2024年度的净利润总额 [2][4]。",
+      "elapsed_s": 4.25,
+      "rerank_ms": null
+    },
+    {
+      "query_id": "U3",
+      "mode": "hybrid",
+      "use_reranker": true,
+      "actual_mode": "hybrid",
+      "routing_decision": null,
+      "top5_pages": [
+        213,
+        251,
+        242,
+        282,
+        8
+      ],
+      "gold_hits": 0,
+      "gold_total": 9,
+      "first_rank": null,
+      "answer_correct": false,
+      "answer_reason": "关键数字未出现",
+      "answer_preview": "根据已有资料无法回答此问题。\n\n参考资料中提供了部分子公司2024年度的净利润数据，例如南京国电南自自动化有限公司为427,419,723.66元，南京国电南自维美德自动化有限公司为115,172,643.92元 [2]。但未提供国电南自（母公司或合并报表）2024年度的整体净利润数据。",
+      "elapsed_s": 13.98,
+      "rerank_ms": 9692.5
+    },
+    {
+      "query_id": "U3",
+      "mode": "multi_query",
+      "use_reranker": false,
+      "actual_mode": "multi_query",
+      "routing_decision": null,
+      "top5_pages": [
+        213,
+        32,
+        251,
+        126,
+        101
+      ],
+      "gold_hits": 0,
+      "gold_total": 9,
+      "first_rank": null,
+      "answer_correct": false,
+      "answer_reason": "关键数字未出现",
+      "answer_preview": "根据已有资料无法回答此问题。\n\n参考资料中提供了国电南自部分子公司2024年度的净利润数据，例如南京国电南自自动化有限公司为427,419,723.66元 [3]，南京国电南自维美德自动化有限公司为115,172,643.92元 [3]。但未提供国电南自（母公司或合并口径）2024年度的整体净利润数据。",
+      "elapsed_s": 8.45,
+      "rerank_ms": null
+    },
+    {
+      "query_id": "U3",
+      "mode": "multi_query",
+      "use_reranker": true,
+      "actual_mode": "multi_query",
+      "routing_decision": null,
+      "top5_pages": [
+        213,
+        251,
+        242,
+        282,
+        8
+      ],
+      "gold_hits": 0,
+      "gold_total": 9,
+      "first_rank": null,
+      "answer_correct": false,
+      "answer_reason": "关键数字未出现",
+      "answer_preview": "根据已有资料无法回答此问题。\n\n参考资料中提供了国电南自部分子公司2024年度的净利润数据，例如南京国电南自自动化有限公司为427,419,723.66元，南京国电南自维美德自动化有限公司为115,172,643.92元 [2]。但未提供国电南自（母公司/合并报表）2024年度的整体净利润数据。",
+      "elapsed_s": 16.27,
+      "rerank_ms": 7792.6
+    },
+    {
+      "query_id": "U3",
+      "mode": "hyde",
+      "use_reranker": false,
+      "actual_mode": "hyde",
+      "routing_decision": null,
+      "top5_pages": [
+        32,
+        33,
+        213,
+        19,
+        251
+      ],
+      "gold_hits": 0,
+      "gold_total": 9,
+      "first_rank": null,
+      "answer_correct": false,
+      "answer_reason": "关键数字未出现",
+      "answer_preview": "根据已有资料无法回答此问题。\n\n参考资料中提供了国电南自部分子公司（如南京国电南自自动化有限公司、南京国电南自维美德自动化有限公司）在2024年度的净利润数据 [5]，但未提供国电南自（600268 国电南京自动化股份有限公司）在2024年度的合并净利润总额。",
+      "elapsed_s": 7.85,
+      "rerank_ms": null
+    },
+    {
+      "query_id": "U3",
+      "mode": "hyde",
+      "use_reranker": true,
+      "actual_mode": "hyde",
+      "routing_decision": null,
+      "top5_pages": [
+        213,
+        251,
+        242,
+        282,
+        32
+      ],
+      "gold_hits": 0,
+      "gold_total": 9,
+      "first_rank": null,
+      "answer_correct": false,
+      "answer_reason": "关键数字未出现",
+      "answer_preview": "根据已有资料无法回答此问题。\n\n参考资料中提供了国电南自部分子公司2024年度的净利润数据，例如南京国电南自自动化有限公司为427,419,723.66元 [2]，南京国电南自维美德自动化有限公司为115,172,643.92元 [2]，但未提供国电南自母公司或整个集团合并口径的2024年度净利润总额。",
+      "elapsed_s": 14.7,
+      "rerank_ms": 5650.3
+    },
+    {
+      "query_id": "U3",
+      "mode": "full",
+      "use_reranker": false,
+      "actual_mode": "full",
+      "routing_decision": null,
+      "top5_pages": [
+        32,
+        101,
+        33,
+        213,
+        251
+      ],
+      "gold_hits": 0,
+      "gold_total": 9,
+      "first_rank": null,
+      "answer_correct": false,
+      "answer_reason": "关键数字未出现",
+      "answer_preview": "根据已有资料无法回答此问题。\n\n参考资料中提供了国电南自部分子公司2024年的净利润数据，例如南京国电南自自动化有限公司为427,419,723.66元[5]，南京国电南自维美德自动化有限公司为115,172,643.92元[5]，但未提供国电南自（母公司或合并口径）2024年度的整体净利润。",
+      "elapsed_s": 13.37,
+      "rerank_ms": null
+    },
+    {
+      "query_id": "U3",
+      "mode": "full",
+      "use_reranker": true,
+      "actual_mode": "full",
+      "routing_decision": null,
+      "top5_pages": [
+        213,
+        251,
+        18,
+        242,
+        282
+      ],
+      "gold_hits": 0,
+      "gold_total": 9,
+      "first_rank": null,
+      "answer_correct": false,
+      "answer_reason": "关键数字未出现",
+      "answer_preview": "根据已有资料无法回答此问题。\n\n参考资料中提供了国电南自部分子公司2024年的净利润数据，例如南京国电南自自动化有限公司为427,419,723.66元，南京国电南自维美德自动化有限公司为115,172,643.92元 [2]。但未提供国电南自母公司或整个集团合并口径的2024年度净利润总额。",
+      "elapsed_s": 23.93,
+      "rerank_ms": 11232.8
+    },
+    {
+      "query_id": "U3",
+      "mode": "auto",
+      "use_reranker": false,
+      "actual_mode": "hyde",
+      "routing_decision": {
+        "use_multi_query": false,
+        "use_hyde": true,
+        "reason": "具体数字问句，需要陈述性指标"
+      },
+      "top5_pages": [
+        32,
+        126,
+        33,
+        213,
+        251
+      ],
+      "gold_hits": 0,
+      "gold_total": 9,
+      "first_rank": null,
+      "answer_correct": false,
+      "answer_reason": "关键数字未出现",
+      "answer_preview": "根据已有资料无法回答此问题。\n\n参考资料中提供了国电南自部分子公司2024年度的净利润数据，例如南京国电南自自动化有限公司为427,419,723.66元 [5]，南京国电南自维美德自动化有限公司为115,172,643.92元 [5]，但未提供国电南自（母公司或合并口径）2024年度的整体净利润数据。",
+      "elapsed_s": 11.21,
+      "rerank_ms": null
+    },
+    {
+      "query_id": "U3",
+      "mode": "auto",
+      "use_reranker": true,
+      "actual_mode": "hyde",
+      "routing_decision": {
+        "use_multi_query": false,
+        "use_hyde": true,
+        "reason": "具体数字问句，需要陈述性指标"
+      },
+      "top5_pages": [
+        213,
+        251,
+        242,
+        282,
+        32
+      ],
+      "gold_hits": 0,
+      "gold_total": 9,
+      "first_rank": null,
+      "answer_correct": false,
+      "answer_reason": "关键数字未出现",
+      "answer_preview": "根据已有资料无法回答此问题。\n\n参考资料中提供了国电南自部分子公司2024年度的净利润数据，例如南京国电南自自动化有限公司为427,419,723.66元 [2]，南京国电南自维美德自动化有限公司为115,172,643.92元 [2]，但未提供国电南自母公司或整个集团合并口径的2024年度净利润总额。",
+      "elapsed_s": 15.74,
+      "rerank_ms": 5350.7
+    },
+    {
+      "query_id": "U5",
+      "mode": "hybrid",
+      "use_reranker": false,
+      "actual_mode": "hybrid",
+      "routing_decision": null,
+      "top5_pages": [
+        12,
+        290,
+        10,
+        59,
+        8
+      ],
+      "gold_hits": 1,
+      "gold_total": 9,
+      "first_rank": 4,
+      "answer_correct": true,
+      "answer_reason": "含'海外/地缘政治' + 风险/应对",
+      "answer_preview": "根据已有资料无法回答此问题。\n\n参考资料中提到了紫金矿业的海外业务布局[1]以及其面临的地缘政治风险与应对措施[4]，但未提供海外业务具体的营收数据。同时，参考资料中提及的风险主要为地缘政治风险[4]和利率风险[2]，但未提供关于海外业务风险的具体量化分析或描述。",
+      "elapsed_s": 4.17,
+      "rerank_ms": null
+    },
+    {
+      "query_id": "U5",
+      "mode": "hybrid",
+      "use_reranker": true,
+      "actual_mode": "hybrid",
+      "routing_decision": null,
+      "top5_pages": [
+        291,
+        287,
+        292,
+        289,
+        293
+      ],
+      "gold_hits": 1,
+      "gold_total": 9,
+      "first_rank": 2,
+      "answer_correct": true,
+      "answer_reason": "含'海外/地缘政治' + 风险/应对",
+      "answer_preview": "根据已有资料无法回答此问题。\n\n参考资料中未提及紫金矿业海外业务的营收情况。关于风险，资料仅涉及金融工具相关的市场风险（如汇率风险[1][3]、利率风险[4]和权益工具投资价格风险[5]），以及政府补助的信息[2]，并未具体说明这些风险与海外业务的关联，也未提供海外业务的其他风险信息。",
+      "elapsed_s": 9.88,
+      "rerank_ms": 5008.9
+    },
+    {
+      "query_id": "U5",
+      "mode": "multi_query",
+      "use_reranker": false,
+      "actual_mode": "multi_query",
+      "routing_decision": null,
+      "top5_pages": [
+        12,
+        10,
+        111,
+        289,
+        290
+      ],
+      "gold_hits": 0,
+      "gold_total": 9,
+      "first_rank": null,
+      "answer_correct": true,
+      "answer_reason": "含'海外/地缘政治' + 风险/应对",
+      "answer_preview": "根据已有资料无法回答此问题。\n\n参考资料中提到了紫金矿业在海外17个国家拥有项目[1]，但未提供其海外业务的具体营收数据。同时，资料中提及了公司面临的流动性风险和市场利率风险[4][5]，但未特别说明这些风险与海外业务的关联或海外业务特有的风险。",
+      "elapsed_s": 7.37,
+      "rerank_ms": null
+    },
+    {
+      "query_id": "U5",
+      "mode": "multi_query",
+      "use_reranker": true,
+      "actual_mode": "multi_query",
+      "routing_decision": null,
+      "top5_pages": [
+        291,
+        287,
+        292,
+        289,
+        290
+      ],
+      "gold_hits": 1,
+      "gold_total": 9,
+      "first_rank": 2,
+      "answer_correct": true,
+      "answer_reason": "含'海外/地缘政治' + 风险/应对",
+      "answer_preview": "根据已有资料无法回答此问题。\n\n参考资料中未提及紫金矿业海外业务的营收情况。关于风险，资料仅涉及金融工具相关的市场风险（汇率风险和利率风险）[1][3][4][5]，以及政府补助信息[2]，并未具体说明这些风险与海外业务的关联程度或海外业务的其他风险。",
+      "elapsed_s": 16.59,
+      "rerank_ms": 9128.3
+    },
+    {
+      "query_id": "U5",
+      "mode": "hyde",
+      "use_reranker": false,
+      "actual_mode": "hyde",
+      "routing_decision": null,
+      "top5_pages": [
+        12,
+        10,
+        59,
+        290,
+        41
+      ],
+      "gold_hits": 2,
+      "gold_total": 9,
+      "first_rank": 3,
+      "answer_correct": true,
+      "answer_reason": "含'海外/地缘政治' + 风险/应对",
+      "answer_preview": "根据已有资料，紫金矿业的海外业务营收数据无法提供，但可以明确其海外业务面临的风险及应对措施。\n\n**海外业务风险：**\n1.  **地缘政治风险**：全球不确定性显著增加，可能对部分海外项目经营产生不利影响[3]。\n2.  **市场风险**：公司面临利率风险等市场风险，利率的变动可能对净损益和股东权益产生影响[4]。\n\n**应对措施：**\n1.  **战略与布局优化**：坚定全球化战略，将地缘政治",
+      "elapsed_s": 17.87,
+      "rerank_ms": null
+    },
+    {
+      "query_id": "U5",
+      "mode": "hyde",
+      "use_reranker": true,
+      "actual_mode": "hyde",
+      "routing_decision": null,
+      "top5_pages": [
+        291,
+        287,
+        292,
+        289,
+        290
+      ],
+      "gold_hits": 1,
+      "gold_total": 9,
+      "first_rank": 2,
+      "answer_correct": true,
+      "answer_reason": "含'海外/地缘政治' + 风险/应对",
+      "answer_preview": "根据已有资料无法回答此问题。\n\n参考资料中未提及紫金矿业海外业务的营收情况。关于风险，资料仅详细说明了与金融工具相关的市场风险（特别是汇率风险和利率风险）[1][3][4][5]，以及政府补助的信息[2]，但未具体说明这些风险与海外业务的关联，也未提供其他关于海外业务运营风险的信息。",
+      "elapsed_s": 12.86,
+      "rerank_ms": 2790.9
+    },
+    {
+      "query_id": "U5",
+      "mode": "full",
+      "use_reranker": false,
+      "actual_mode": "full",
+      "routing_decision": null,
+      "top5_pages": [
+        12,
+        10,
+        111,
+        289,
+        290
+      ],
+      "gold_hits": 0,
+      "gold_total": 9,
+      "first_rank": null,
+      "answer_correct": true,
+      "answer_reason": "含'海外/地缘政治' + 风险/应对",
+      "answer_preview": "根据已有资料无法回答此问题。\n\n参考资料中提到了紫金矿业在海外17个国家拥有项目[1]，并提供了集团整体的营业收入数据[2]，但没有提供海外业务具体的营收数据。同时，资料中提到了集团面临的金融工具风险，包括流动性风险和市场风险（利率风险）[4][5]，但未特别说明这些风险在海外业务中的具体表现或程度。",
+      "elapsed_s": 14.36,
+      "rerank_ms": null
+    },
+    {
+      "query_id": "U5",
+      "mode": "full",
+      "use_reranker": true,
+      "actual_mode": "full",
+      "routing_decision": null,
+      "top5_pages": [
+        291,
+        287,
+        292,
+        289,
+        290
+      ],
+      "gold_hits": 1,
+      "gold_total": 9,
+      "first_rank": 2,
+      "answer_correct": true,
+      "answer_reason": "含'海外/地缘政治' + 风险/应对",
+      "answer_preview": "根据已有资料无法回答此问题。\n\n参考资料中未提及紫金矿业海外业务的营收情况。关于风险，资料仅涉及金融工具相关的市场风险（汇率风险和利率风险）[1][3][4][5]，并未具体说明这些风险与海外业务的关系或海外业务的其他风险。",
+      "elapsed_s": 15.36,
+      "rerank_ms": 2668.1
+    },
+    {
+      "query_id": "U5",
+      "mode": "auto",
+      "use_reranker": false,
+      "actual_mode": "full",
+      "routing_decision": {
+        "use_multi_query": true,
+        "use_hyde": true,
+        "reason": "多维度 + 具体指标"
+      },
+      "top5_pages": [
+        12,
+        10,
+        111,
+        289,
+        290
+      ],
+      "gold_hits": 0,
+      "gold_total": 9,
+      "first_rank": null,
+      "answer_correct": true,
+      "answer_reason": "含'海外/地缘政治' + 风险/应对",
+      "answer_preview": "根据已有资料无法回答此问题。\n\n参考资料中提到了紫金矿业在海外17个国家拥有项目[1]，并提供了集团整体的营业收入数据[2]，但没有提供海外业务具体的营收数据。同时，参考资料提到了审计中对持续经营能力的关注[3]以及金融工具的流动性风险和市场风险（如利率风险）[4][5]，但这些是集团整体的风险披露，并未特别区分或指明哪些风险是专门或主要针对海外业务的。",
+      "elapsed_s": 16.42,
+      "rerank_ms": null
+    },
+    {
+      "query_id": "U5",
+      "mode": "auto",
+      "use_reranker": true,
+      "actual_mode": "full",
+      "routing_decision": {
+        "use_multi_query": true,
+        "use_hyde": true,
+        "reason": "多维度（海外业务情况） + 具体指标（营收和风险）"
+      },
+      "top5_pages": [
+        291,
+        287,
+        292,
+        289,
+        290
+      ],
+      "gold_hits": 1,
+      "gold_total": 9,
+      "first_rank": 2,
+      "answer_correct": true,
+      "answer_reason": "含'海外/地缘政治' + 风险/应对",
+      "answer_preview": "根据已有资料无法回答此问题。\n\n参考资料中未提及紫金矿业海外业务的营收情况。关于风险，资料仅涉及金融工具相关的市场风险（汇率风险和利率风险）[1][3][4][5]，以及政府补助信息[2]，并未专门讨论海外业务的具体风险。",
+      "elapsed_s": 20.41,
+      "rerank_ms": 4730.4
+    },
+    {
+      "query_id": "U6",
+      "mode": "hybrid",
+      "use_reranker": false,
+      "actual_mode": "hybrid",
+      "routing_decision": null,
+      "top5_pages": [
+        108,
+        28,
+        19,
+        18,
+        223
+      ],
+      "gold_hits": 0,
+      "gold_total": 6,
+      "first_rank": null,
+      "answer_correct": true,
+      "answer_reason": "含 '423,701,834'",
+      "answer_preview": "宁德时代2025年营业收入为423,701,834千元 [1]。",
+      "elapsed_s": 2.06,
+      "rerank_ms": null
+    },
+    {
+      "query_id": "U6",
+      "mode": "hybrid",
+      "use_reranker": true,
+      "actual_mode": "hybrid",
+      "routing_decision": null,
+      "top5_pages": [
+        108,
+        25,
+        221,
+        59,
+        30
+      ],
+      "gold_hits": 0,
+      "gold_total": 6,
+      "first_rank": null,
+      "answer_correct": true,
+      "answer_reason": "含 '423,701,834'",
+      "answer_preview": "宁德时代2025年营业收入为423,701,834千元 [1]。",
+      "elapsed_s": 12.74,
+      "rerank_ms": 10677.8
+    },
+    {
+      "query_id": "U6",
+      "mode": "multi_query",
+      "use_reranker": false,
+      "actual_mode": "multi_query",
+      "routing_decision": null,
+      "top5_pages": [
+        108,
+        28,
+        223,
+        19,
+        107
+      ],
+      "gold_hits": 0,
+      "gold_total": 6,
+      "first_rank": null,
+      "answer_correct": true,
+      "answer_reason": "含 '423,701,834'",
+      "answer_preview": "宁德时代2025年营业收入为423,701,834千元 [1]。",
+      "elapsed_s": 5.64,
+      "rerank_ms": null
+    },
+    {
+      "query_id": "U6",
+      "mode": "multi_query",
+      "use_reranker": true,
+      "actual_mode": "multi_query",
+      "routing_decision": null,
+      "top5_pages": [
+        108,
+        59,
+        30,
+        203,
+        28
+      ],
+      "gold_hits": 0,
+      "gold_total": 6,
+      "first_rank": null,
+      "answer_correct": true,
+      "answer_reason": "含 '423,701,834'",
+      "answer_preview": "宁德时代2025年营业收入为423,701,834千元 [1]。",
+      "elapsed_s": 8.26,
+      "rerank_ms": 2682.5
+    },
+    {
+      "query_id": "U6",
+      "mode": "hyde",
+      "use_reranker": false,
+      "actual_mode": "hyde",
+      "routing_decision": null,
+      "top5_pages": [
+        108,
+        22,
+        28,
+        21,
+        19
+      ],
+      "gold_hits": 0,
+      "gold_total": 6,
+      "first_rank": null,
+      "answer_correct": true,
+      "answer_reason": "含 '423,701,834'",
+      "answer_preview": "宁德时代2025年营业收入为423,701,834千元 [1]。",
+      "elapsed_s": 5.36,
+      "rerank_ms": null
+    },
+    {
+      "query_id": "U6",
+      "mode": "hyde",
+      "use_reranker": true,
+      "actual_mode": "hyde",
+      "routing_decision": null,
+      "top5_pages": [
+        108,
+        59,
+        30,
+        203,
+        28
+      ],
+      "gold_hits": 0,
+      "gold_total": 6,
+      "first_rank": null,
+      "answer_correct": true,
+      "answer_reason": "含 '423,701,834'",
+      "answer_preview": "宁德时代2025年营业收入为423,701,834千元 [1]。",
+      "elapsed_s": 9.82,
+      "rerank_ms": 4157.5
+    },
+    {
+      "query_id": "U6",
+      "mode": "full",
+      "use_reranker": false,
+      "actual_mode": "full",
+      "routing_decision": null,
+      "top5_pages": [
+        108,
+        223,
+        28,
+        19,
+        107
+      ],
+      "gold_hits": 0,
+      "gold_total": 6,
+      "first_rank": null,
+      "answer_correct": true,
+      "answer_reason": "含 '423,701,834'",
+      "answer_preview": "宁德时代2025年营业收入为423,701,834千元 [1]。",
+      "elapsed_s": 11.08,
+      "rerank_ms": null
+    },
+    {
+      "query_id": "U6",
+      "mode": "full",
+      "use_reranker": true,
+      "actual_mode": "full",
+      "routing_decision": null,
+      "top5_pages": [
+        108,
+        59,
+        30,
+        28,
+        16
+      ],
+      "gold_hits": 0,
+      "gold_total": 6,
+      "first_rank": null,
+      "answer_correct": true,
+      "answer_reason": "含 '423,701,834'",
+      "answer_preview": "宁德时代2025年营业收入为423,701,834千元 [1]。",
+      "elapsed_s": 16.21,
+      "rerank_ms": 6031.0
+    },
+    {
+      "query_id": "U6",
+      "mode": "auto",
+      "use_reranker": false,
+      "actual_mode": "hyde",
+      "routing_decision": {
+        "use_multi_query": false,
+        "use_hyde": true,
+        "reason": "具体数字问句，需要纵向对齐获取陈述性指标"
+      },
+      "top5_pages": [
+        108,
+        22,
+        28,
+        21,
+        19
+      ],
+      "gold_hits": 0,
+      "gold_total": 6,
+      "first_rank": null,
+      "answer_correct": true,
+      "answer_reason": "含 '423,701,834'",
+      "answer_preview": "宁德时代2025年营业收入为423,701,834千元 [1]。",
+      "elapsed_s": 8.1,
+      "rerank_ms": null
+    },
+    {
+      "query_id": "U6",
+      "mode": "auto",
+      "use_reranker": true,
+      "actual_mode": "hyde",
+      "routing_decision": {
+        "use_multi_query": false,
+        "use_hyde": true,
+        "reason": "具体数字问句，需要纵向对齐获取指标"
+      },
+      "top5_pages": [
+        108,
+        59,
+        30,
+        203,
+        28
+      ],
+      "gold_hits": 0,
+      "gold_total": 6,
+      "first_rank": null,
+      "answer_correct": true,
+      "answer_reason": "含 '423,701,834'",
+      "answer_preview": "宁德时代2025年营业收入为423,701,834千元 [1]。",
+      "elapsed_s": 14.77,
+      "rerank_ms": 6051.1
+    }
+  ]
+}
