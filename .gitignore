@@ -32,4 +32,4 @@ qdrant_storage/
 
 # 模型缓存
 models/
-.cache/
+.cache/get-pip.py
